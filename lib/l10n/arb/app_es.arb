@@ -1,0 +1,11 @@
+{
+    "@@locale": "es",
+    "counterAppBarTitle": "Contador",
+    "@counterAppBarTitle": {
+        "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "ytEmbedAppBarTitle": "Video de YouTube",
+    "@ytEmbedAppBarTitle": {
+    "description": "Texto mostrado en la barra de aplicaciones de la página de incrustación de video de YouTube"
+    }
+}

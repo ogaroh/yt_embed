@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "ytEmbedAppBarTitle": "YouTube Video",
+    "@ytEmbedAppBarTitle": {
+        "description": "Text shown in the AppBar of the YouTube Video Embed Page"
+    }
+}
