@@ -2,7 +2,7 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:yt_test/user/repo/users_repo.dart';
+import 'package:yt_test/modules/user/repo/users_repo.dart';
 
 part 'user_state.dart';
 

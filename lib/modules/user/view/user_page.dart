@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yt_test/l10n/l10n.dart';
-import 'package:yt_test/user/cubit/user_cubit.dart';
+import 'package:yt_test/modules/user/cubit/user_cubit.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({super.key});

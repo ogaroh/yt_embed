@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:http/http.dart';
 
 class UserRepo {
+  // get users
   Future<List<dynamic>> getUsers() async {
     var users = <dynamic>[];
     try {

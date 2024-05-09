@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yt_test/counter/counter.dart';
-import 'package:yt_test/counter/view/yt_embed.dart';
 import 'package:yt_test/l10n/l10n.dart';
-import 'package:yt_test/user/view/user_page.dart';
+import 'package:yt_test/modules/counter/counter.dart';
+import 'package:yt_test/modules/counter/view/yt_embed.dart';
+import 'package:yt_test/modules/user/view/user_page.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
