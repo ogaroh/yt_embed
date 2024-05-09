@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yt_test/l10n/l10n.dart';
@@ -29,7 +30,7 @@ class UsersView extends StatelessWidget {
             return const Center(
               child: Padding(
                 padding: EdgeInsets.all(8),
-                child: CircularProgressIndicator.adaptive(),
+                child: CupertinoActivityIndicator(),
               ),
             );
           } else if (state is UserDone) {
