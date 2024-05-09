@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yt_test/counter/counter.dart';
 import 'package:yt_test/counter/view/yt_embed.dart';
 import 'package:yt_test/l10n/l10n.dart';
+import 'package:yt_test/user/view/user_page.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
@@ -18,6 +19,15 @@ class CounterPage extends StatelessWidget {
   }
 }
 
+class UsersView extends StatelessWidget {
+  const UsersView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
 class CounterView extends StatelessWidget {
   const CounterView({super.key});
 
@@ -26,41 +36,60 @@ class CounterView extends StatelessWidget {
     final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
-      body: const Center(child: CounterText()),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().increment(),
-            child: const Icon(Icons.add),
-          ),
-          const SizedBox(height: 8),
-          FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().decrement(),
-            child: const Icon(Icons.remove),
-          ),
-          const SizedBox(height: 8),
-          FloatingActionButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const YTEmbedPage()),
-            ),
-            child: const Icon(Icons.video_call),
-          ),
-        ],
+      body: const Center(
+        child: CounterBody(),
       ),
     );
   }
 }
 
-class CounterText extends StatelessWidget {
-  const CounterText({super.key});
+class CounterBody extends StatelessWidget {
+  const CounterBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final count = context.select((CounterCubit cubit) => cubit.state);
-    return Text('$count', style: theme.textTheme.displayLarge);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('$count', style: theme.textTheme.displayLarge),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton.icon(
+              onPressed: () => context.read<CounterCubit>().decrement(),
+              icon: const Icon(Icons.remove),
+              label: const Text('Decrement'),
+            ),
+            const SizedBox(width: 8),
+            FilledButton.icon(
+              onPressed: () => context.read<CounterCubit>().increment(),
+              icon: const Icon(Icons.add),
+              label: const Text('Increment'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        ElevatedButton.icon(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const YTEmbedPage()),
+          ),
+          icon: const Icon(Icons.video_call),
+          label: const Text('YouTube Embed'),
+        ),
+        const SizedBox(height: 8),
+        ElevatedButton.icon(
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const UserPage()),
+          ),
+          icon: const Icon(Icons.person_2),
+          label: const Text('Users'),
+        ),
+      ],
+    );
   }
 }
