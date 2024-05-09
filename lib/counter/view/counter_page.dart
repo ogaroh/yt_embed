@@ -54,7 +54,6 @@ class CounterBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('$count', style: theme.textTheme.displayLarge),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

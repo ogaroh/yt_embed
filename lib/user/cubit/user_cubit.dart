@@ -6,15 +6,16 @@ import 'package:yt_test/user/repo/users_repo.dart';
 
 part 'user_state.dart';
 
+final UserRepo userRepo = UserRepo();
+
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial()) {
     getUsers();
   }
 
-  final UserRepo userRepo = UserRepo();
-
   // get users
   Future<void> getUsers() async {
+    emit(UserInitial());
     final users = await userRepo.getUsers();
     emit(UserDone(users: users));
   }

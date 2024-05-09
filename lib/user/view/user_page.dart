@@ -41,26 +41,29 @@ class UsersView extends StatelessWidget {
                 ),
               );
             } else {
-              return ListView.builder(
-                itemCount: state.users.length,
-                itemBuilder: (context, index) {
-                  final user = state.users[index] as Map;
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 16,
-                    ),
-                    child: ListTile(
-                      leading: const Icon(Icons.person_2),
-                      title: Text(
-                        user['name'].toString(),
+              return RefreshIndicator(
+                onRefresh: () async => context.read<UserCubit>().getUsers(),
+                child: ListView.builder(
+                  itemCount: state.users.length,
+                  itemBuilder: (context, index) {
+                    final user = state.users[index] as Map;
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 16,
                       ),
-                      subtitle: Text(
-                        user['email'].toString(),
+                      child: ListTile(
+                        leading: const Icon(Icons.person_2),
+                        title: Text(
+                          user['name'].toString(),
+                        ),
+                        subtitle: Text(
+                          user['email'].toString(),
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               );
             }
           } else {
