@@ -15,7 +15,6 @@ class UserCubit extends Cubit<UserState> {
 
   // get users
   Future<void> getUsers() async {
-    emit(UserInitial());
     final users = await userRepo.getUsers();
     emit(UserDone(users: users));
   }
